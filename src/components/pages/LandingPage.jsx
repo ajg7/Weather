@@ -10,10 +10,10 @@ const LandingPage = () => {
 			<section>
 				<Descriptor
 					description={"See the Temperature and UV Index of your local area!"}
-					headingType={3}
+					headingNumber={3}
 				/>
-				<Descriptor description={"Temperature"} headingType={2} />
-				<Descriptor description={"UV Index"} headingType={2} />
+				<Descriptor description={"Temperature"} headingNumber={2} />
+				<Descriptor description={"UV Index"} headingNumber={2} />
 			</section>
 		</div>
 	);
