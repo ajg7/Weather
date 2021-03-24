@@ -15,6 +15,9 @@ const LandingPage = () => {
 				<Descriptor description={"Temperature"} headingNumber={2} />
 				<Descriptor description={"UV Index"} headingNumber={2} />
 			</section>
+            <footer>
+                <Descriptor description={"Created By: A.J. Gebara"} headingNumber={2} />
+            </footer>
 		</div>
 	);
 };
