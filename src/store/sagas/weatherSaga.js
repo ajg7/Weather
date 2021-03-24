@@ -22,12 +22,11 @@ function* workerSaga() {
 		});
 
 		const windSpeeds = list.map(ele => {
-			return { windSpeed: ele.wind.speed};
+			return { windSpeed: ele.wind.speed };
 		});
 
 		yield put({ type: "WEATHER_DATA_SUCCESS", list, temps, windSpeeds });
-	} 
-	catch (error) {
+	} catch (error) {
 		yield put({ type: "WEATHER_DATA_FAILURE", error });
 	}
 }
