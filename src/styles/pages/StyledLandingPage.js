@@ -9,12 +9,8 @@ export const StyledLandingPage = styled.div`
 
 	header,
 	section .descriptor,
+	section .buttons,
 	footer {
-		display: flex;
-		justify-content: center;
-	}
-
-	section .buttons {
 		display: flex;
 		justify-content: center;
 	}
