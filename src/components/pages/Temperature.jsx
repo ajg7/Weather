@@ -8,6 +8,7 @@ const Temperature = props => {
 	return (
 		<div>
 			<Title title={"Temperature"} />
+			
 			<Button buttonText={"Test"} clickFunc={fetchWeatherData} />
 		</div>
 	);
@@ -15,6 +16,15 @@ const Temperature = props => {
 
 Temperature.propTypes = {
 	fetchWeatherData: PropTypes.func,
+	temps: PropTypes.array,
+	windSpeeds: PropTypes.array
+};
+
+const mapStateToProps = state => {
+	return {
+		temps: state.weather.temps,
+		windSpeeds: state.weather.windSpeeds
+	};
 };
 
 const mapDispatchToProps = dispatch => {
@@ -23,4 +33,4 @@ const mapDispatchToProps = dispatch => {
 	};
 };
 
-export default connect(null, mapDispatchToProps)(Temperature);
+export default connect(mapStateToProps, mapDispatchToProps)(Temperature);

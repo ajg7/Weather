@@ -9,7 +9,7 @@ const App = () => {
 			<Reset />
 			<Switch>
 				<Route path="/temp" component={Temperature} />
-				<Route path="/uv" component={WindSpeed} />
+				<Route path="/wind" component={WindSpeed} />
 				<Route path="/" component={LandingPage} />
 			</Switch>
 		</>
