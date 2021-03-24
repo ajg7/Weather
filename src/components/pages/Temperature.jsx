@@ -2,13 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Title, WeatherChart } from "../common";
+import { tempAverageCreator } from "../../utils/averageCreators";
 
 const Temperature = props => {
 	const { temps } = props;
+	const tempData = tempAverageCreator(temps);
 	return (
 		<div>
 			<Title title={"Temperature"} />
-			<WeatherChart tempData={temps} />
+			<WeatherChart tempData={tempData} />
 		</div>
 	);
 };
