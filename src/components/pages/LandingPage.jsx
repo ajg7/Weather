@@ -1,18 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Descriptor, Title, Button } from "../common";
 import { useHistory } from "react-router-dom";
+import { useFetches } from "../../hooks";
 
 const LandingPage = props => {
 	const { fetchWeatherData } = props;
 	const history = useHistory();
 	const tempHandler = () => history.push("/temp");
-	const windHandler = () => history.push("/uv");
-
-	useEffect(() => {
-		fetchWeatherData();
-	}, [fetchWeatherData]);
+	const windHandler = () => history.push("/wind");
+	useFetches(fetchWeatherData);
 
 	return (
 		<div>
@@ -37,15 +35,13 @@ const LandingPage = props => {
 };
 
 LandingPage.propTypes = {
-	fetchWeatherData: PropTypes.func
+	fetchWeatherData: PropTypes.func,
 };
-
 
 const mapDispatchToProps = dispatch => {
 	return {
 		fetchWeatherData: () => dispatch({ type: "FETCH_WEATHER_DATA" }),
 	};
 };
-
 
 export default connect(null, mapDispatchToProps)(LandingPage);
