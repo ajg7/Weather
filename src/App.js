@@ -1,7 +1,7 @@
 import React from "react";
 import { Reset } from "./styles/global";
 import { Route, Switch } from "react-router-dom";
-import { LandingPage, Temperature, UVIndex } from "./components/pages";
+import { LandingPage, Temperature, WindSpeed } from "./components/pages";
 
 const App = () => {
 	return (
@@ -9,7 +9,7 @@ const App = () => {
 			<Reset />
 			<Switch>
 				<Route path="/temp" component={Temperature} />
-				<Route path="/uv" component={UVIndex} />
+				<Route path="/uv" component={WindSpeed} />
 				<Route path="/" component={LandingPage} />
 			</Switch>
 		</>

@@ -1,5 +1,5 @@
 import LandingPage from "./LandingPage";
 import Temperature from "./Temperature";
-import UVIndex from "./UVIndex";
+import WindSpeed from "./WindSpeed";
 
-export { LandingPage, Temperature, UVIndex };
+export { LandingPage, Temperature, WindSpeed };

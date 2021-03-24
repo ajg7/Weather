@@ -1,11 +1,26 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Title, Button } from "../common";
 
-const Temperature = () => {
+const Temperature = props => {
+	const { fetchWeatherData } = props;
 	return (
 		<div>
-			<h1>Temperature</h1>
+			<Title title={"Temperature"} />
+			<Button buttonText={"Test"} clickFunc={fetchWeatherData} />
 		</div>
 	);
 };
 
-export default Temperature;
+Temperature.propTypes = {
+	fetchWeatherData: PropTypes.func,
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		fetchWeatherData: () => dispatch({ type: "FETCH_WEATHER_DATA" }),
+	};
+};
+
+export default connect(null, mapDispatchToProps)(Temperature);
