@@ -1,11 +1,12 @@
 import React from "react";
+import { Reset } from "./styles/global";
 
 
 const App = () => {
 	return (
-		<div className="App">
-			<h1>Hi</h1>
-		</div>
+		<>
+			<Reset />
+		</>
 	);
 };
 
