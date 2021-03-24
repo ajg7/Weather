@@ -30,6 +30,10 @@ const LandingPage = props => {
 					description={"See the Temperature and Wind Speed of Nebraska!"}
 					headingNumber={3}
 				/>
+				<Descriptor
+					description={"Click to See a Graph"}
+					headingNumber={3}
+				/>
 				<Button buttonText={"Wind Speed"} value={"wind"} clickFunc={activateChart} />
 				<Button buttonText={"Temperature"} value={"temp"} clickFunc={activateChart} />
 				{active === "wind" ? (
