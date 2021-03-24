@@ -1,19 +1,28 @@
+/*
+Using Chart.js, this hook takes data, and produces a graph
+*@param {chartRef} You need to useRef in the component that uses useChart
+*@param {typeOfGraph} line, bar, or pie
+*@param {data} data supplied in JSON format
+*@param {dataLabel} title of the graph
+*@param {xLabels} labels on the x-axis of the graph
+*@param {units} unit of measurements for the graph
+*/
 import Chart from "chart.js";
 import { useEffect } from "react";
 
-export const useLineGraph = (chartRef, data, dataLabel, xLabels, units) => {
+export const useChart = (chartRef, typeOfGraph, data, dataLabel, xLabels, units) => {
 	useEffect(() => {
 		const canvas = chartRef.current;
 		const ctx = canvas.getContext("2d");
 		new Chart(ctx, {
-			type: "line",
+			type: typeOfGraph,
 			data: {
 				labels: xLabels,
 				datasets: [
 					{
 						label: `${dataLabel} (${units})`,
-						fill: false,
 						data: data,
+						fill: false,
 						backgroundColor: ["red", "green", "blue", "purple", "orange"],
 					},
 				],
@@ -32,5 +41,5 @@ export const useLineGraph = (chartRef, data, dataLabel, xLabels, units) => {
 				responsive: false,
 			},
 		});
-	}, [chartRef, xLabels, dataLabel, data, units]);
+	}, [chartRef, typeOfGraph, xLabels, dataLabel, data, units]);
 };

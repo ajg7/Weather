@@ -1,11 +1,18 @@
-export const getDates = () => {
-	const date = new Date();
-	const fiveDay = [];
-	let count = 0;
-	while (count < 5) {
-		fiveDay.push(`${date.getMonth() + 1}/${date.getDate() + count}`);
-		count++;
+/*
+	This function grabs the current day of the week, and then the next subsequent 4 days, and returns an array of those days.
+	This is for the labels in the graphs
+*/
+
+export const getNextKDates = k => {
+	const daysOfTheWeek = ["Su", "M", "T", "W", "R", "F", "Sa"];
+	const days = [];
+	const currentDayOfTheWeek = new Date().getDay();
+	let day = currentDayOfTheWeek;
+	for (let i = 0; i < k; i++) {
+		days.push(daysOfTheWeek[day % daysOfTheWeek.length]);
+		day++;
 	}
 
-	return fiveDay;
+	console.log(days);
+	return days;
 };

@@ -1,7 +1,6 @@
 import Descriptor from "./Descriptor";
 import Title from "./Title";
 import Button from "./Button";
-import WeatherLineChart from "./WeatherLineChart";
-import WeatherBarChart from "./WeatherBarChart";
+import WeatherChart from "./WeatherChart";
 
-export { Descriptor, Title, Button, WeatherLineChart, WeatherBarChart };
+export { Descriptor, Title, Button, WeatherChart };

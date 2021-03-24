@@ -17,15 +17,15 @@ function* workerSaga() {
 			data: { list },
 		} = yield call(fetchWeatherData);
 
-		const temps = list.map(ele => {
-			return { temp: ele.main.temp };
+		const temperatures = list.map(ele => {
+			return { temperature: ele.main.temp };
 		});
 
 		const windSpeeds = list.map(ele => {
 			return { windSpeed: ele.wind.speed };
 		});
 
-		yield put({ type: "WEATHER_DATA_SUCCESS", list, temps, windSpeeds });
+		yield put({ type: "WEATHER_DATA_SUCCESS", list, temperatures, windSpeeds });
 	} catch (error) {
 		yield put({ type: "WEATHER_DATA_FAILURE", error });
 	}

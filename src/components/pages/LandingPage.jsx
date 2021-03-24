@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Descriptor, Title, Button, WeatherBarChart, WeatherLineChart } from "../common";
+import { Descriptor, Title, Button, WeatherChart } from "../common";
 import { useFetches } from "../../hooks";
-import { windAverageCreator, tempAverageCreator } from "../../utils/averageCreators";
+import { getAveragesForKGroups } from "../../utils/getAverages";
 import { StyledLandingPage } from "../../styles/pages";
 
 const LandingPage = props => {
-	const { fetchWeatherData, windSpeeds, temps } = props;
-	const windSpeedData = windAverageCreator(windSpeeds);
-	const tempData = tempAverageCreator(temps);
+	const { fetchWeatherData, windSpeeds, temperatures } = props;
+	const windSpeedData = getAveragesForKGroups(
+		windSpeeds.map(windSpeed => windSpeed.windSpeed),
+		8
+	);
+	const temperatureData = getAveragesForKGroups(
+		temperatures.map(temperature => temperature.temperature),
+		8
+	);
 	const [active, setActive] = useState("");
 	const activateChart = event => setActive(event.target.value);
 	useFetches(fetchWeatherData);
@@ -26,8 +32,24 @@ const LandingPage = props => {
 				/>
 				<Button buttonText={"Wind Speed"} value={"wind"} clickFunc={activateChart} />
 				<Button buttonText={"Temperature"} value={"temp"} clickFunc={activateChart} />
-				{active === "wind" ? <WeatherLineChart className="chart" windSpeedData={windSpeedData} /> : null}
-				{active === "temp" ? <WeatherBarChart className="chart" tempData={tempData} /> : null}
+				{active === "wind" ? (
+					<WeatherChart
+						className="chart"
+						units={"m/s"}
+						title={"Average Wind Speed"}
+						data={windSpeedData}
+						typeOfGraph={"line"}
+					/>
+				) : null}
+				{active === "temp" ? (
+					<WeatherChart
+						className="chart"
+						units={"K"}
+						title={"Average Temperature"}
+						data={temperatureData}
+						typeOfGraph={"bar"}
+					/>
+				) : null}
 			</section>
 			<footer>
 				<Descriptor description={"Created By: A.J. Gebara"} headingNumber={2} />
@@ -39,13 +61,13 @@ const LandingPage = props => {
 LandingPage.propTypes = {
 	fetchWeatherData: PropTypes.func,
 	windSpeeds: PropTypes.array,
-	temps: PropTypes.array,
+	temperatures: PropTypes.array,
 };
 
 const mapStateToProps = state => {
 	return {
 		windSpeeds: state.weather.windSpeeds,
-		temps: state.weather.temps,
+		temperatures: state.weather.temperatures,
 	};
 };
 

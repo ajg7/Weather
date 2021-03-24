@@ -1,5 +1,4 @@
 import { useFetches } from "./useFetches";
-import { useLineGraph } from "./useLineGraph";
-import { useBarGraph } from "./useBarGraph";
+import { useChart } from "./useChart";
 
-export { useFetches, useLineGraph, useBarGraph };
+export { useFetches, useChart };
