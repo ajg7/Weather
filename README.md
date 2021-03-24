@@ -8,4 +8,4 @@ AJ Gebara's Take Home React/Redux app
 
 2. Make the store, and get weather data
 
-3. Use Chart.js to make the charts  
+3. Use Chart.js to make the charts
