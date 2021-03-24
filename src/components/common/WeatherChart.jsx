@@ -12,22 +12,26 @@ const WeatherChart = () => {
 		const ctx = canvas.getContext("2d");
 		console.log(canvas, "dark", ctx, "light");
 		new Chart(ctx, {
-			type: "line",
+			type: "bar",
 			data: {
 				labels: ["M", "T", "W", "R", "F"],
 				datasets: [
 					{
 						label: "Average Wind Speeds",
-						data: [9, 4, 35, 6, 17]
+						data: [9, 4, 3, 6, 10],
 					}
 				]
+			},
+			options: {
+				maintainAspectRatio: false,
+				responsive: false
 			}
 		});
 	}, []);
 
 	return (
 		<div>
-			<canvas ref={chartRef} width="40" height="40" ></canvas>
+			<canvas ref={chartRef} width="800" height="400"></canvas>
 		</div>
 	);
 };
