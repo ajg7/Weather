@@ -4,21 +4,20 @@ import { connect } from "react-redux";
 import { Descriptor, Title, Button, WeatherBarChart, WeatherLineChart } from "../common";
 import { useFetches } from "../../hooks";
 import { windAverageCreator, tempAverageCreator } from "../../utils/averageCreators";
+import { StyledLandingPage } from "../../styles/pages";
 
 const LandingPage = props => {
 	const { fetchWeatherData, windSpeeds, temps } = props;
 	const windSpeedData = windAverageCreator(windSpeeds);
 	const tempData = tempAverageCreator(temps);
-	const [active, setActive] = useState(false);
-	const [value, setValue] = useState("");
+	const [active, setActive] = useState("");
 	const activateChart = event => {
-		setActive(!active);
-		setValue(event.target.value);
+		setActive(event.target.value);
 	};
 	useFetches(fetchWeatherData);
 
 	return (
-		<div>
+		<StyledLandingPage>
 			<header>
 				<Title title={"Weather!"} />
 			</header>
@@ -28,18 +27,18 @@ const LandingPage = props => {
 					headingNumber={3}
 				/>
 				<Button buttonText={"Wind Speed"} value={"wind"} clickFunc={activateChart} />
-				{
-					active && value === "wind" ? <WeatherLineChart windSpeedData={windSpeedData} /> : null
-				}
 				<Button buttonText={"Temperature"} value={"temp"} clickFunc={activateChart} />
 				{
-					active && value === "temp" ? <WeatherBarChart tempData={tempData} /> : null
+					active === "wind" ? <WeatherLineChart windSpeedData={windSpeedData} /> : null
+				}
+				{
+					active === "temp" ? <WeatherBarChart tempData={tempData} /> : null
 				}
 			</section>
 			<footer>
 				<Descriptor description={"Created By: A.J. Gebara"} headingNumber={2} />
 			</footer>
-		</div>
+		</StyledLandingPage>
 	);
 };
 

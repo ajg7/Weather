@@ -1,14 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { StyledButton } from "../../styles/common";
 
 const Button = props => {
 	const { buttonText, clickFunc, value } = props;
 	return (
-		<div>
+		<StyledButton className={"buttons"}>
 			<button onClick={clickFunc} value={value}>
 				{buttonText}
 			</button>
-		</div>
+		</StyledButton>
 	);
 };
 
