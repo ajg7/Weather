@@ -18,7 +18,7 @@ function* workerSaga() {
 		} = yield call(fetchWeatherData);
 
 		const temps = list.map(ele => {
-			return { high: ele.main.temp_max, low: ele.main.temp_min };
+			return { temp: ele.main.temp };
 		});
 
 		const windSpeeds = list.map(ele => {

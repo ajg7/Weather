@@ -7,7 +7,7 @@ const WeatherBarChart = props => {
 	const { tempData } = props;
 	const chartRef = useRef();
 	const dates = getDates();
-	useBarGraph(chartRef, tempData, ["Average Highs", "Average Lows"], dates);
+	useBarGraph(chartRef, tempData, "Average Temperature", dates, "K");
 	return (
 		<div>
 			<canvas ref={chartRef} width="800" height="400"></canvas>

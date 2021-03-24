@@ -1,7 +1,7 @@
 import Chart from "chart.js";
 import { useEffect } from "react";
 
-export const useBarGraph = (chartRef, data, dataLabel, xLabels) => {
+export const useBarGraph = (chartRef, data, dataLabel, xLabels, units) => {
 	useEffect(() => {
 		const canvas = chartRef.current;
 		const ctx = canvas.getContext("2d");
@@ -11,13 +11,8 @@ export const useBarGraph = (chartRef, data, dataLabel, xLabels) => {
 				labels: xLabels,
 				datasets: [
 					{
-						label: dataLabel,
-						data: data[0],
-						backgroundColor: ["red", "green", "blue", "purple", "orange"],
-					},
-					{
-						label: "Average Lows",
-						data: data[1],
+						label: `${dataLabel} (${units})`,
+						data: data,
 						backgroundColor: ["red", "green", "blue", "purple", "orange"],
 					},
 				],

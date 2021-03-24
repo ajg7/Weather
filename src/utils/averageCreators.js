@@ -16,33 +16,21 @@ export const windAverageCreator = data => {
 };
 
 export const tempAverageCreator = data => {
-	const highAverages = [];
-	const lowAverages = [];
+	const averages = [];
 	let count = 1;
 	let accumulator = 0;
 
-	const highs = data.map(high => high.high);
-	const lows = data.map(low => low.low);
+	const temps = data.map(temp => temp.temp);
 
-	for (const high of highs) {
+	for (const temp of temps) {
 		if (count % 8 === 0) {
 			const average = accumulator / 8;
-			highAverages.push(average.toFixed(2));
+			averages.push(average.toFixed(2));
 			accumulator = 0;
 		}
-		accumulator += high;
+		accumulator += temp;
 		count++;
 	}
 
-	count = 1;
-	for (const low of lows) {
-		if (count % 8 === 0) {
-			const average = accumulator / 8;
-			lowAverages.push(average.toFixed(2));
-			accumulator = 0;
-		}
-		accumulator += low;
-		count++;
-	}
-	return [highAverages, lowAverages];
+	return averages;
 };

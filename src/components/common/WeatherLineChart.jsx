@@ -7,7 +7,7 @@ const WeatherLineChart = props => {
 	const { windSpeedData } = props;
 	const chartRef = useRef();
 	const dates = getDates();
-	useLineGraph(chartRef, windSpeedData, "Average Speed", dates);
+	useLineGraph(chartRef, windSpeedData, "Average Speed", dates, "m/s");
 	return (
 		<div>
 			<canvas ref={chartRef} width="800" height="400"></canvas>
