@@ -35,5 +35,5 @@ export const useLineGraph = (chartRef, data, dataLabel, xLabels, units) => {
 				responsive: false,
 			},
 		});
-	}, [chartRef, xLabels, dataLabel, data]);
+	}, [chartRef, xLabels, dataLabel, data, units]);
 };

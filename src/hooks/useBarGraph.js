@@ -31,5 +31,5 @@ export const useBarGraph = (chartRef, data, dataLabel, xLabels, units) => {
 				responsive: false,
 			},
 		});
-	}, [chartRef, xLabels, dataLabel, data]);
+	}, [chartRef, xLabels, dataLabel, data, units]);
 };
