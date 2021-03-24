@@ -6,7 +6,7 @@ const LandingPage = () => {
 	const history = useHistory();
 	const tempHandler = () => history.push("/temp");
 	const uvHandler = () => history.push("/uv");
-    
+
 	return (
 		<div>
 			<header>
