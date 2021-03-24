@@ -18,7 +18,7 @@ export const useBarGraph = (chartRef, data, dataLabel, xLabels) => {
 					{
 						label: "Average Lows",
 						data: data[1],
-						backgroundColor: ["red, green, blue"],
+						backgroundColor: ["red", "green", "blue", "purple", "orange"],
 					},
 				],
 			},

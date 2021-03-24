@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Title, WeatherChart } from "../common";
+import { Title, WeatherBarChart } from "../common";
 import { tempAverageCreator } from "../../utils/averageCreators";
 
 const Temperature = props => {
@@ -10,7 +10,7 @@ const Temperature = props => {
 	return (
 		<div>
 			<Title title={"Temperature"} />
-			<WeatherChart tempData={tempData} />
+			<WeatherBarChart tempData={tempData} />
 		</div>
 	);
 };
