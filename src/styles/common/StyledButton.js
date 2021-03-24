@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const StyledButton = styled.div`
-    button {
+	button {
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
@@ -10,7 +10,7 @@ export const StyledButton = styled.div`
 		color: ${({ theme }) => theme.secondary};
 		border-radius: 16px;
 		text-transform: capitalize;
-        font-weight: bold;
+		font-weight: bold;
 
 		&:hover {
 			background-color: ${({ theme }) => theme.secondary};

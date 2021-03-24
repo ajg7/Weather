@@ -28,12 +28,8 @@ const LandingPage = props => {
 				/>
 				<Button buttonText={"Wind Speed"} value={"wind"} clickFunc={activateChart} />
 				<Button buttonText={"Temperature"} value={"temp"} clickFunc={activateChart} />
-				{
-					active === "wind" ? <WeatherLineChart windSpeedData={windSpeedData} /> : null
-				}
-				{
-					active === "temp" ? <WeatherBarChart tempData={tempData} /> : null
-				}
+				{active === "wind" ? <WeatherLineChart windSpeedData={windSpeedData} /> : null}
+				{active === "temp" ? <WeatherBarChart tempData={tempData} /> : null}
 			</section>
 			<footer>
 				<Descriptor description={"Created By: A.J. Gebara"} headingNumber={2} />

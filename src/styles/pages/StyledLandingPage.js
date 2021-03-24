@@ -1,20 +1,21 @@
 import styled from "styled-components";
 
 export const StyledLandingPage = styled.div`
-    padding: ${({ theme }) => theme.globalPadding};
-    
-    * {
-        margin: 5px 0;
-    }
+	padding: ${({ theme }) => theme.globalPadding};
 
-    header, section .descriptor, footer {
-        display: flex;
-        justify-content: center;
-    }
+	* {
+		margin: 5px 0;
+	}
 
-    section .buttons {
-        display: flex;
-        justify-content: center;
-    }
+	header,
+	section .descriptor,
+	footer {
+		display: flex;
+		justify-content: center;
+	}
 
-`; 
+	section .buttons {
+		display: flex;
+		justify-content: center;
+	}
+`;
