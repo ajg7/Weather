@@ -11,9 +11,7 @@ const LandingPage = props => {
 	const windSpeedData = windAverageCreator(windSpeeds);
 	const tempData = tempAverageCreator(temps);
 	const [active, setActive] = useState("");
-	const activateChart = event => {
-		setActive(event.target.value);
-	};
+	const activateChart = event => setActive(event.target.value);
 	useFetches(fetchWeatherData);
 
 	return (
@@ -28,8 +26,8 @@ const LandingPage = props => {
 				/>
 				<Button buttonText={"Wind Speed"} value={"wind"} clickFunc={activateChart} />
 				<Button buttonText={"Temperature"} value={"temp"} clickFunc={activateChart} />
-				{active === "wind" ? <WeatherLineChart windSpeedData={windSpeedData} /> : null}
-				{active === "temp" ? <WeatherBarChart tempData={tempData} /> : null}
+				{active === "wind" ? <WeatherLineChart className="chart" windSpeedData={windSpeedData} /> : null}
+				{active === "temp" ? <WeatherBarChart className="chart" tempData={tempData} /> : null}
 			</section>
 			<footer>
 				<Descriptor description={"Created By: A.J. Gebara"} headingNumber={2} />
