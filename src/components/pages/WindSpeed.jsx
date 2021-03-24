@@ -1,11 +1,26 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Title } from "../common";
 
 const WindSpeed = () => {
+	// const { windSpeeds } = props;
 	return (
 		<div>
-			<h1>Wind Speed</h1>
+			<Title title={"Wind Speed"} />
+			
 		</div>
 	);
 };
 
-export default WindSpeed;
+WindSpeed.propTypes = {
+	windSpeeds: PropTypes.array
+};
+
+const mapStateToProps = state => {
+	return {
+		windSpeeds: state.weather.windSpeeds,
+	};
+};
+
+export default connect(mapStateToProps, {})(WindSpeed);
