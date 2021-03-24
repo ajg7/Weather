@@ -2,7 +2,7 @@
 
 I used OpenWeather API ("https://openweathermap.org/forecast5")
 
-## Get Start
+## Get Started
 
 ```js
 npm install
