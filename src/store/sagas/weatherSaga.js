@@ -2,15 +2,15 @@ import { takeEvery, call, put } from "redux-saga/effects";
 import { token, state } from "../../utils/queryParams";
 import axios from "axios";
 
-export function* watcherSaga() {
-	yield takeEvery("FETCH_WEATHER_DATA", workerSaga);
+export function* weatherWatcherSaga() {
+	yield takeEvery("FETCH_WEATHER_DATA", weatherWorkerSaga);
 }
 
 const fetchWeatherData = () => {
 	return axios(`https://api.openweathermap.org/data/2.5/forecast/?q=${state}&appid=${token}`);
 };
 
-function* workerSaga() {
+function* weatherWorkerSaga() {
 	try {
 		const {
 			data: { list },
