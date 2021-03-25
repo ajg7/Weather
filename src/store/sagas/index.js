@@ -1,3 +1,3 @@
-import { watcherSaga } from "./weatherSaga";
+import { weatherWatcherSaga } from "./weatherSaga";
 
-export { watcherSaga };
+export { weatherWatcherSaga };

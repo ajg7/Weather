@@ -5,4 +5,8 @@ export const theme = {
 	fontFamily: "sans-serif",
 	title: "32px",
 	otherSize: "24px",
+	darkMode: {
+		darkBackground: "black",
+		darkBackgroundText: "white",
+	},
 };
