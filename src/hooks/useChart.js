@@ -1,12 +1,3 @@
-/*
-Using Chart.js, this hook takes data, and produces a graph
-*@param {chartRef} You need to useRef in the component that uses useChart
-*@param {typeOfGraph} line, bar, or pie
-*@param {data} data supplied in JSON format
-*@param {dataLabel} title of the graph
-*@param {xLabels} labels on the x-axis of the graph
-*@param {units} unit of measurements for the graph
-*/
 import Chart from "chart.js";
 import { useEffect } from "react";
 

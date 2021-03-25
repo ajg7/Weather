@@ -1,8 +1,8 @@
-/*
-	This function grabs the current day of the week, and then the next subsequent 4 days, and returns an array of those days.
-	This is for the labels in the graphs
-*/
-
+/**
+ * Get an array of the names of the days as strings, from today up to K days from today.
+ * @param {number} k
+ * @return {string[]}
+ */
 export const getNextKDates = k => {
 	const daysOfTheWeek = ["Su", "M", "T", "W", "R", "F", "Sa"];
 	const days = [];

@@ -10,11 +10,11 @@ const LandingPage = props => {
 	const { fetchWeatherData, windSpeeds, temperatures } = props;
 	const windSpeedData = getAveragesForKGroups(
 		windSpeeds.map(windSpeed => windSpeed.windSpeed),
-		8
+		8 // The API returns the 40 most recent measurements, measured every 3 hours. To get all measurements in 24 hours (1 day), you must take 8 measurements.
 	);
 	const temperatureData = getAveragesForKGroups(
 		temperatures.map(temperature => temperature.temperature),
-		8
+		8 // The API returns the 40 most recent measurements, measured every 3 hours. To get all measurements in 24 hours (1 day), you must take 8 measurements.
 	);
 	const [active, setActive] = useState("");
 	const activateChart = event => setActive(event.target.value);
@@ -30,10 +30,7 @@ const LandingPage = props => {
 					description={"See the Temperature and Wind Speed of Nebraska!"}
 					headingNumber={3}
 				/>
-				<Descriptor
-					description={"Click to See a Graph"}
-					headingNumber={3}
-				/>
+				<Descriptor description={"Click to See a Graph"} headingNumber={3} />
 				<Button buttonText={"Wind Speed"} value={"wind"} clickFunc={activateChart} />
 				<Button buttonText={"Temperature"} value={"temp"} clickFunc={activateChart} />
 				{active === "wind" ? (
