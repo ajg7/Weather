@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Descriptor, Title, Button, WeatherChart } from "../common";
+import { Descriptor, Title, Button, WeatherChart, Toggle } from "../common";
 import { useFetches } from "../../hooks";
 import { getAveragesForKGroups } from "../../utils/getAverages";
 import { StyledLandingPage } from "../../styles/pages";
 
 const LandingPage = props => {
-	const { fetchWeatherData, windSpeeds, temperatures } = props;
+	const { fetchWeatherData, windSpeeds, temperatures, setDarkMode, darkMode } = props;
 	const windSpeedData = getAveragesForKGroups(
 		windSpeeds.map(windSpeed => windSpeed.windSpeed),
 		8 // The API returns the 40 most recent measurements, measured every 3 hours. To get all measurements in 24 hours (1 day), you must take 8 measurements.
@@ -18,6 +18,7 @@ const LandingPage = props => {
 	);
 	const [active, setActive] = useState("");
 	const activateChart = event => setActive(event.target.value);
+	const change = event => setDarkMode(event.target.checked);
 	useFetches(fetchWeatherData);
 
 	return (
@@ -25,6 +26,9 @@ const LandingPage = props => {
 			<header>
 				<Title title={"Weather!"} />
 			</header>
+			<div>
+				<Toggle toggleLabel={"Dark Mode"} changeFunc={change} />
+			</div>
 			<section>
 				<Descriptor
 					description={"See the Temperature and Wind Speed of Nebraska!"}
@@ -40,6 +44,7 @@ const LandingPage = props => {
 						title={"Average Wind Speed"}
 						data={windSpeedData}
 						typeOfGraph={"line"}
+						darkMode={darkMode}
 					/>
 				) : null}
 				{active === "temp" ? (
@@ -63,6 +68,8 @@ LandingPage.propTypes = {
 	fetchWeatherData: PropTypes.func,
 	windSpeeds: PropTypes.array,
 	temperatures: PropTypes.array,
+	setDarkMode: PropTypes.func,
+	darkMode: PropTypes.boolean,
 };
 
 const mapStateToProps = state => {
