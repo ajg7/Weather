@@ -2,16 +2,17 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { getNextKDates } from "../../utils/getDates";
 import { useChart } from "../../hooks";
+import { StyledWeatherChart } from "../../styles/common";
 
 const WeatherChart = props => {
-	const { data, typeOfGraph, title, units } = props;
+	const { data, typeOfGraph, title, units, darkMode } = props;
 	const chartRef = useRef();
 	const dates = getNextKDates(5);
-	useChart(chartRef, typeOfGraph, data, title, dates, units);
+	useChart(chartRef, typeOfGraph, data, title, dates, units, darkMode);
 	return (
-		<div>
-			<canvas ref={chartRef} width="800" height="400"></canvas>
-		</div>
+		<StyledWeatherChart className="weather-chart">
+			<canvas ref={chartRef}></canvas>
+		</StyledWeatherChart>
 	);
 };
 
@@ -20,6 +21,7 @@ WeatherChart.propTypes = {
 	typeOfGraph: PropTypes.string,
 	title: PropTypes.string,
 	units: PropTypes.string,
+	darkMode: PropTypes.boolean,
 };
 
 export default WeatherChart;
