@@ -1,7 +1,7 @@
 import Chart from "chart.js";
 import { useEffect } from "react";
 
-export const useChart = (chartRef, typeOfGraph, data, dataLabel, xLabels, units) => {
+export const useChart = (chartRef, typeOfGraph, data, dataLabel, xLabels, units, darkMode) => {
 	useEffect(() => {
 		const canvas = chartRef.current;
 		const ctx = canvas.getContext("2d");
@@ -13,8 +13,9 @@ export const useChart = (chartRef, typeOfGraph, data, dataLabel, xLabels, units)
 					{
 						label: `${dataLabel} (${units})`,
 						data: data,
-						fill: false,
-						backgroundColor: ["red", "green", "blue", "purple", "orange"],
+						fill: darkMode ? true : false,
+						borderColor: darkMode ? "orange" : "blue",
+						backgroundColor: ["green", "red", "orange", "yellow", "brown"],
 					},
 				],
 			},
@@ -32,5 +33,5 @@ export const useChart = (chartRef, typeOfGraph, data, dataLabel, xLabels, units)
 				responsive: false,
 			},
 		});
-	}, [chartRef, typeOfGraph, xLabels, dataLabel, data, units]);
+	}, [chartRef, typeOfGraph, xLabels, dataLabel, data, units, darkMode]);
 };
