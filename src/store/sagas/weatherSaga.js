@@ -24,7 +24,7 @@ function* weatherWorkerSaga() {
 			return { windSpeed: ele.wind.speed };
 		});
 
-		yield put({ type: "WEATHER_DATA_SUCCESS", list, temperatures, windSpeeds });
+		yield put({ type: "WEATHER_DATA_SUCCESS", list, temperatures, windSpeeds, state });
 	} catch (error) {
 		yield put({ type: "WEATHER_DATA_FAILURE", error });
 	}

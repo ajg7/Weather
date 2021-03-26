@@ -8,7 +8,7 @@ import { kelvinToCelsius } from "../../utils/conversionFuncs";
 import { StyledLandingPage } from "../../styles/pages";
 
 const LandingPage = props => {
-	const { fetchWeatherData, windSpeeds, temperatures, setDarkMode, darkMode } = props;
+	const { fetchWeatherData, windSpeeds, temperatures, setDarkMode, darkMode, state } = props;
 	const windSpeedData = getAveragesForKGroups(
 		windSpeeds.map(windSpeed => windSpeed.windSpeed),
 		8 // The API returns the 40 most recent measurements, measured every 3 hours. To get all measurements in 24 hours (1 day), you must take 8 measurements.
@@ -32,7 +32,7 @@ const LandingPage = props => {
 			</div>
 			<section>
 				<Descriptor
-					description={"See the Temperature and Wind Speed of Nebraska!"}
+					description={`See the Temperature and Wind Speed of ${state}!`}
 					headingNumber={3}
 				/>
 				<Descriptor description={"Click to See a Graph"} headingNumber={3} />
@@ -71,12 +71,14 @@ LandingPage.propTypes = {
 	temperatures: PropTypes.array,
 	setDarkMode: PropTypes.func,
 	darkMode: PropTypes.bool,
+	state: PropTypes.string
 };
 
 const mapStateToProps = state => {
 	return {
 		windSpeeds: state.weather.windSpeeds,
 		temperatures: state.weather.temperatures,
+		state: state.weather.state
 	};
 };
 
