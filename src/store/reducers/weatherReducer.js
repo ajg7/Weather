@@ -2,7 +2,7 @@ const initialState = {
 	data: [],
 	temperatures: [],
 	windSpeeds: [],
-	state: ""
+	state: "",
 };
 
 export const reducer = (state = initialState, action) => {
@@ -13,7 +13,7 @@ export const reducer = (state = initialState, action) => {
 				data: action.list,
 				temperatures: action.temperatures,
 				windSpeeds: action.windSpeeds,
-				state: action.state
+				state: action.state,
 			};
 		default:
 			return state;
