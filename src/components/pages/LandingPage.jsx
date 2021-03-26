@@ -27,7 +27,7 @@ const LandingPage = props => {
 				<Title title={"Weather!"} />
 			</header>
 			<div>
-				<Toggle toggleLabel={"Dark Mode"} changeFunc={change} />
+				<Toggle toggleLabel={"Dark Mode"} changeFunc={change} darkMode={darkMode} />
 			</div>
 			<section>
 				<Descriptor
