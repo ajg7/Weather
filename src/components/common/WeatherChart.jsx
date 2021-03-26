@@ -2,13 +2,15 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { getNextKDates } from "../../utils/getDates";
 import { useChart } from "../../hooks";
+import { ChartInput } from "../../classes";
 import { StyledWeatherChart } from "../../styles/common";
 
 const WeatherChart = props => {
 	const { data, typeOfGraph, title, units, darkMode } = props;
 	const chartRef = useRef();
 	const dates = getNextKDates(5);
-	useChart(chartRef, typeOfGraph, data, title, dates, units, darkMode);
+	const chartValues = new ChartInput(chartRef, typeOfGraph, data, title, dates, units, darkMode);
+	useChart(chartValues);
 	return (
 		<StyledWeatherChart className="weather-chart">
 			<canvas ref={chartRef}></canvas>
