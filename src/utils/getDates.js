@@ -13,6 +13,5 @@ export const getNextKDates = k => {
 		day++;
 	}
 
-	console.log(days);
 	return days;
 };

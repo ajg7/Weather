@@ -5,10 +5,10 @@ export const StyledToggle = styled.div`
 	justify-content: flex-end;
 	align-items: center;
 
-    label {
-        font-family: ${({ theme }) => theme.fontFamily};
-    }
-    
+	label {
+		font-family: ${({ theme }) => theme.fontFamily};
+	}
+
 	input {
 		margin: 0 10px;
 	}

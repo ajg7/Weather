@@ -21,7 +21,7 @@ WeatherChart.propTypes = {
 	typeOfGraph: PropTypes.string,
 	title: PropTypes.string,
 	units: PropTypes.string,
-	darkMode: PropTypes.boolean,
+	darkMode: PropTypes.bool,
 };
 
 export default WeatherChart;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Weather Chart Weather Chart renders 1`] = `
+<styled.div
+  className="weather-chart"
+>
+  <canvas />
+</styled.div>
+`;
