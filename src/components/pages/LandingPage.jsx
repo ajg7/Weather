@@ -69,7 +69,7 @@ LandingPage.propTypes = {
 	windSpeeds: PropTypes.array,
 	temperatures: PropTypes.array,
 	setDarkMode: PropTypes.func,
-	darkMode: PropTypes.boolean,
+	darkMode: PropTypes.bool,
 };
 
 const mapStateToProps = state => {
