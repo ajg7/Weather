@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Descriptor, Title, Button, WeatherChart, Toggle } from "../common";
 import { useFetches } from "../../hooks";
 import { getAveragesForKGroups } from "../../utils/getAverages";
+import { kelvinToCelsius } from "../../utils/conversionFuncs";
 import { StyledLandingPage } from "../../styles/pages";
 
 const LandingPage = props => {
@@ -50,9 +51,9 @@ const LandingPage = props => {
 				{active === "temp" ? (
 					<WeatherChart
 						className="chart"
-						units={"K"}
+						units={"C"}
 						title={"Average Temperature"}
-						data={temperatureData}
+						data={kelvinToCelsius(temperatureData)}
 						typeOfGraph={"bar"}
 					/>
 				) : null}
