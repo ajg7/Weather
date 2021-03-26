@@ -5,10 +5,10 @@ import { WeatherChart } from "../components/common";
 
 configure({ adapter: new Adapter() });
 
-const wrapped = shallow(<WeatherChart />)
+const wrapped = shallow(<WeatherChart />);
 
 describe("Weather Chart", () => {
 	test("Weather Chart renders", () => {
-        expect(wrapped).toMatchSnapshot();
-    });
+		expect(wrapped).toMatchSnapshot();
+	});
 });

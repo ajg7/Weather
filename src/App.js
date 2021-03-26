@@ -2,10 +2,11 @@ import React from "react";
 import { Reset, DarkMode } from "./styles/global";
 import { Route, Switch } from "react-router-dom";
 import { LandingPage } from "./components/pages";
-import { useDarkMode } from "./hooks";
+import { useDarkMode, useLocalStorage } from "./hooks";
 
 const App = () => {
-	const [darkMode, setDarkMode] = useDarkMode(false);
+	const [darkMode, setDarkMode] = useDarkMode(JSON.parse(localStorage.getItem("isDark")));
+	useLocalStorage("isDark", darkMode);
 	return (
 		<>
 			<Reset />

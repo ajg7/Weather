@@ -23,7 +23,7 @@ Toggle.propTypes = {
 	toggleLabel: PropTypes.string,
 	changeFunc: PropTypes.func,
 	classNameText: PropTypes.string,
-	darkMode: PropTypes.bool
+	darkMode: PropTypes.bool,
 };
 
 export default Toggle;
